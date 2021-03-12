@@ -4,23 +4,27 @@ import {View, Text, StyleSheet} from 'react-native';
 export default function PlayerContent({numberOfWinsX, numberOfWins0}) {
   return (
     <View style={styles.contentScore}>
-      <Text style={styles.contentPlayer}>X</Text>
-      <View style={styles.gameScore}>
-        <Text style={styles.contentGameScore}>Score:</Text>
+      <Text style={styles.contentGameScore}>Score</Text>
+      <View style={styles.content}>
+        <Text style={styles.contentPlayer}>X</Text>
         <Text style={styles.contentGameScore}>
           {numberOfWinsX} - {numberOfWins0}
         </Text>
+        <Text style={styles.contentPlayer}>0</Text>
       </View>
-      <Text style={styles.contentPlayer}>0</Text>
     </View>
   );
 }
 const styles = StyleSheet.create({
   contentScore: {
     flex: 2,
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  content: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   contentPlayer: {
     flex: 3,
