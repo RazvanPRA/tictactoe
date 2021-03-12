@@ -30,6 +30,7 @@ const App: () => React$Node = () => {
   const [numberOfWins0, setNumberOfWins0] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [isDraw, setIsDraw] = useState(false);
+  const [winningSquares, setWinningSquares] = useState([]);
 
   useEffect(() => {
     if (
@@ -37,6 +38,7 @@ const App: () => React$Node = () => {
       tableValues[1] === tableValues[2] &&
       tableValues[1] !== ''
     ) {
+      setWinningSquares([0, 1, 2]);
       if (tableValues[0] === 'X') {
         setNumberOfWinsX(numberOfWinsX + 1);
         setGameOver(!gameOver);
@@ -50,6 +52,7 @@ const App: () => React$Node = () => {
       tableValues[4] === tableValues[5] &&
       tableValues[4] !== ''
     ) {
+      setWinningSquares([3, 4, 5]);
       if (tableValues[3] === 'X') {
         setNumberOfWinsX(numberOfWinsX + 1);
         setGameOver(!gameOver);
@@ -63,6 +66,7 @@ const App: () => React$Node = () => {
       tableValues[7] === tableValues[8] &&
       tableValues[7] !== ''
     ) {
+      setWinningSquares([6, 7, 8]);
       if (tableValues[6] === 'X') {
         setNumberOfWinsX(numberOfWinsX + 1);
         setGameOver(!gameOver);
@@ -76,6 +80,7 @@ const App: () => React$Node = () => {
       tableValues[3] === tableValues[6] &&
       tableValues[3] !== ''
     ) {
+      setWinningSquares([0, 3, 6]);
       if (tableValues[0] === 'X') {
         setNumberOfWinsX(numberOfWinsX + 1);
         setGameOver(!gameOver);
@@ -89,6 +94,7 @@ const App: () => React$Node = () => {
       tableValues[4] === tableValues[7] &&
       tableValues[4] !== ''
     ) {
+      setWinningSquares([1, 4, 7]);
       if (tableValues[1] === 'X') {
         setNumberOfWinsX(numberOfWinsX + 1);
         setGameOver(!gameOver);
@@ -102,6 +108,7 @@ const App: () => React$Node = () => {
       tableValues[5] === tableValues[8] &&
       tableValues[5] !== ''
     ) {
+      setWinningSquares([2, 5, 8]);
       if (tableValues[2] === 'X') {
         setNumberOfWinsX(numberOfWinsX + 1);
         setGameOver(!gameOver);
@@ -115,6 +122,7 @@ const App: () => React$Node = () => {
       tableValues[4] === tableValues[8] &&
       tableValues[4] !== ''
     ) {
+      setWinningSquares([0, 4, 8]);
       if (tableValues[0] === 'X') {
         setNumberOfWinsX(numberOfWinsX + 1);
         setGameOver(!gameOver);
@@ -128,6 +136,7 @@ const App: () => React$Node = () => {
       tableValues[4] === tableValues[6] &&
       tableValues[4] !== ''
     ) {
+      setWinningSquares([2, 4, 6]);
       if (tableValues[2] === 'X') {
         setNumberOfWinsX(numberOfWinsX + 1);
         setGameOver(!gameOver);
@@ -156,7 +165,8 @@ const App: () => React$Node = () => {
           setTableValues={setTableValues}
           playerTurn={playerTurn}
           setPlayerTurn={setPlayerTurn}
-          gameOver={gameOver}></Table>
+          gameOver={gameOver}
+          winningSquares={winningSquares}></Table>
         <PlayerContent
           numberOfWinsX={numberOfWinsX}
           numberOfWins0={numberOfWins0}></PlayerContent>
@@ -165,7 +175,8 @@ const App: () => React$Node = () => {
           setPlayerTurn={setPlayerTurn}
           setGameOver={setGameOver}
           gameOver={gameOver}
-          setIsDraw={setIsDraw}></RestartButton>
+          setIsDraw={setIsDraw}
+          setWinningSquares={setWinningSquares}></RestartButton>
       </View>
     </>
   );

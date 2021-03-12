@@ -7,31 +7,26 @@ export default function RestartButton({
   setGameOver,
   gameOver,
   setIsDraw,
+  setWinningSquares,
 }) {
   return (
-    <View style={styles.vButton}>
-      <TouchableOpacity
-        onPress={() => {
-          setTableValues(['', '', '', '', '', '', '', '', '']);
-          setPlayerTurn('X');
-          setGameOver(false);
-          setIsDraw(false);
-        }}
-        style={styles.button}>
-        <Text style={[styles.bInnerText]}>
-          {gameOver === true ? 'Play Again?' : 'Restart'}
-        </Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      onPress={() => {
+        setTableValues(['', '', '', '', '', '', '', '', '']);
+        setPlayerTurn('X');
+        setGameOver(false);
+        setIsDraw(false);
+        setWinningSquares([]);
+      }}
+      style={styles.button}>
+      <Text style={[styles.bInnerText]}>
+        {gameOver === true ? 'Play Again?' : 'Restart'}
+      </Text>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  vButton: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    marginBottom: 10,
-  },
   button: {
     color: 'red',
     backgroundColor: '#127681',
@@ -39,10 +34,14 @@ const styles = StyleSheet.create({
     padding: '1%',
     borderRadius: 10,
     alignSelf: 'center',
+    marginBottom: 10,
+    height: 58,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   bInnerText: {
-    textAlign: 'center',
     fontSize: 25,
     color: '#E9E9E9',
+    fontWeight: 'bold',
   },
 });

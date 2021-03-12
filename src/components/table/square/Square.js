@@ -9,7 +9,9 @@ export default function Square({
   tableValues,
   index,
   gameOver,
+  winningSquares,
 }) {
+  const isWinner = winningSquares.indexOf(index) !== -1;
   return (
     <Pressable
       style={styles.squareContainer}
@@ -21,7 +23,9 @@ export default function Square({
           setPlayerTurn(playerTurn === 'X' ? '0' : 'X');
         }
       }}>
-      <Text style={styles.squareValues}>{squareValue}</Text>
+      <Text style={[styles.squareValues, isWinner && styles.winningSquare]}>
+        {squareValue}
+      </Text>
     </Pressable>
   );
 }
@@ -39,5 +43,8 @@ const styles = StyleSheet.create({
   squareValues: {
     fontSize: 60,
     color: '#F8B400',
+  },
+  winningSquare: {
+    color: '#47D93B',
   },
 });

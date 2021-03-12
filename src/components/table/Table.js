@@ -8,6 +8,7 @@ export default function Table({
   playerTurn,
   setPlayerTurn,
   gameOver,
+  winningSquares,
 }) {
   return (
     <View style={styles.contentBorder}>
@@ -20,7 +21,8 @@ export default function Table({
           index={index}
           playerTurn={playerTurn}
           setPlayerTurn={setPlayerTurn}
-          gameOver={gameOver}></Square>
+          gameOver={gameOver}
+          winningSquares={winningSquares}></Square>
       ))}
     </View>
   );

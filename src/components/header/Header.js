@@ -29,5 +29,6 @@ const styles = StyleSheet.create({
   textHeader: {
     color: '#E9E9E9',
     fontSize: 25,
+    fontWeight: 'bold',
   },
 });
