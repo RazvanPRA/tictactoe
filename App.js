@@ -7,7 +7,7 @@
  */
 
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Header from './src/components/header/Header';
 import Table from './src/components/table/Table';
 import RestartButton from './src/components/restartButton/RestartButton';
@@ -149,17 +149,17 @@ const App: () => React$Node = () => {
         <Header
           isDraw={isDraw}
           gameOver={gameOver}
-          playerTurn={playerTurn}></Header>
-        <Text>
-          {`${isDraw}`} {`${gameOver}`}
-        </Text>
+          playerTurn={playerTurn}
+          tableValues={tableValues}></Header>
         <Table
           tableValues={tableValues}
           setTableValues={setTableValues}
           playerTurn={playerTurn}
           setPlayerTurn={setPlayerTurn}
           gameOver={gameOver}></Table>
-        <PlayerContent></PlayerContent>
+        <PlayerContent
+          numberOfWinsX={numberOfWinsX}
+          numberOfWins0={numberOfWins0}></PlayerContent>
         <RestartButton
           setTableValues={setTableValues}
           setPlayerTurn={setPlayerTurn}

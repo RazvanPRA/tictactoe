@@ -1,11 +1,20 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 
-export default function Header({playerTurn, gameOver, isDraw}) {
+export default function Header({playerTurn, gameOver, isDraw, tableValues}) {
   return (
     <View style={styles.header}>
       {isDraw && <Text style={styles.textHeader}>Draw!</Text>}
-      {!isDraw && <Text style={styles.textHeader}>Next Move: X</Text>}
+      {!isDraw && !gameOver && (
+        <Text style={styles.textHeader}>
+          Next Move: {playerTurn === 'X' ? 'X' : '0'}
+        </Text>
+      )}
+      {gameOver && (
+        <Text style={styles.textHeader}>
+          Winner: {playerTurn === '0' ? 'X' : '0'}
+        </Text>
+      )}
     </View>
   );
 }
@@ -13,7 +22,6 @@ export default function Header({playerTurn, gameOver, isDraw}) {
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    borderWidth: 2,
     borderColor: `#ff0000`,
     alignSelf: 'center',
     justifyContent: 'center',

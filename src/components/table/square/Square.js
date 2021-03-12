@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Pressable, Text} from 'react-native';
+import {StyleSheet, Pressable, Text} from 'react-native';
 
 export default function Square({
   squareValue,
@@ -11,20 +11,18 @@ export default function Square({
   gameOver,
 }) {
   return (
-    <View style={styles.squareContainer}>
-      <Pressable
-        onPress={() => {
-          console.warn('razvan');
-          // if (gameOver === false && tableValues[index] === '') {
-          //   let newTableValues = [...tableValues];
-          //   newTableValues[index] = playerTurn;
-          //   setTableValues(newTableValues);
-          //   setPlayerTurn(playerTurn === 'X' ? '0' : 'X');
-          // }
-        }}>
-        <Text style={styles.squareValues}>{squareValue}</Text>
-      </Pressable>
-    </View>
+    <Pressable
+      style={styles.squareContainer}
+      onPress={() => {
+        if (gameOver === false && tableValues[index] === '') {
+          let newTableValues = [...tableValues];
+          newTableValues[index] = playerTurn;
+          setTableValues(newTableValues);
+          setPlayerTurn(playerTurn === 'X' ? '0' : 'X');
+        }
+      }}>
+      <Text style={styles.squareValues}>{squareValue}</Text>
+    </Pressable>
   );
 }
 
