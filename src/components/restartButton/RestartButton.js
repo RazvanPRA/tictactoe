@@ -33,10 +33,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    fontSize: 100,
     color: 'red',
     backgroundColor: '#127681',
-    width: 'auto',
+    width: 200,
     padding: '1%',
     borderRadius: 10,
     alignSelf: 'center',
