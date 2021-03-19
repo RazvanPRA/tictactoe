@@ -1,19 +1,24 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
+import TemplateIcon from '../template/TemplateIcon';
 
-export default function Header({playerTurn, gameOver, isDraw, tableValues}) {
+export default function Header({playerTurn, gameOver, isDraw}) {
   return (
     <View style={styles.header}>
-      {isDraw && <Text style={styles.textHeader}>Draw!</Text>}
+      {!gameOver && isDraw && <Text style={styles.textHeader}>Draw!</Text>}
       {!isDraw && !gameOver && (
-        <Text style={styles.textHeader}>
-          Next Move: {playerTurn === 'X' ? 'X' : '0'}
-        </Text>
+        <View style={styles.texTHeader}>
+          <Text style={styles.textHeader}>Next Move:</Text>
+          <TemplateIcon
+            iconValue={playerTurn === 'X' ? 'X' : '0'}></TemplateIcon>
+        </View>
       )}
       {gameOver && (
-        <Text style={styles.textHeader}>
-          Winner: {playerTurn === '0' ? 'X' : '0'}
-        </Text>
+        <View style={styles.texTHeader}>
+          <Text style={styles.textHeader}>Winner:</Text>
+          <TemplateIcon
+            iconValue={playerTurn === '0' ? 'X' : '0'}></TemplateIcon>
+        </View>
       )}
     </View>
   );
@@ -30,5 +35,11 @@ const styles = StyleSheet.create({
     color: '#E9E9E9',
     fontSize: 25,
     fontWeight: 'bold',
+  },
+  texTHeader: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
   },
 });

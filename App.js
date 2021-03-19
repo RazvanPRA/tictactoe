@@ -12,7 +12,10 @@ import Header from './src/components/header/Header';
 import Table from './src/components/table/Table';
 import RestartButton from './src/components/restartButton/RestartButton';
 import PlayerContent from './src/components/playerContent/PlayerContent';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
+const zero = <Icon name="circle" size={30} color="#F8B400" />;
+const x = <Icon name="x" size={30} color="#F8B400" />;
 const App: () => React$Node = () => {
   const [tableValues, setTableValues] = useState([
     '',
@@ -152,6 +155,7 @@ const App: () => React$Node = () => {
       setIsDraw(true);
     }
   }, [tableValues, gameOver]);
+
   return (
     <>
       <View style={styles.body}>

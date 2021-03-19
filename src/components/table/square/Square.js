@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Pressable, Text} from 'react-native';
+import TemplateIcon from '../../template/TemplateIcon';
 
 export default function Square({
   squareValue,
@@ -23,19 +24,21 @@ export default function Square({
           setPlayerTurn(playerTurn === 'X' ? '0' : 'X');
         }
       }}>
-      <Text style={[styles.squareValues, isWinner && styles.winningSquare]}>
-        {squareValue}
-      </Text>
+      <TemplateIcon iconValue={squareValue} isWinner={isWinner}></TemplateIcon>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
+  icon: {
+    fontSize: 40,
+    color: '#F8B400',
+  },
   squareContainer: {
     backgroundColor: '#127681',
     margin: 10,
     borderRadius: 25,
-    width: 95,
+    width: '25%',
     aspectRatio: 1,
     justifyContent: 'center',
     alignItems: 'center',
