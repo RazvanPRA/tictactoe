@@ -1,4 +1,4 @@
-package com.project;
+package com.razvantictactoe;
 
 import com.facebook.react.ReactActivity;
 
